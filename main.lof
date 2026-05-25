@@ -1,0 +1,20 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Biểu đồ phân phối số lượng và tỷ lệ phần chăm Email Ham vs Spam}}{6}{figure.caption.4}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Đồ thị độ chính xác huấn luyện qua các vòng lặp của Logistic Regression}}{8}{figure.caption.5}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Ma trận nhầm lẫn và so sánh thực tế vs dự đoán của Logistic Regression}}{9}{figure.caption.7}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Đồ thị Learning Curve (Quy mô dữ liệu vs Độ chính xác) của Gaussian Naive Bayes}}{11}{figure.caption.8}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Ma trận nhầm lẫn và so sánh thực tế vs dự đoán của Gaussian Naive Bayes}}{12}{figure.caption.10}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Biểu đồ phân phối của các biến đặc trưng số trong E-commerce Dataset}}{16}{figure.caption.14}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Biểu đồ tương quan chéo Pairplot giữa các thuộc tính liên tục}}{17}{figure.caption.15}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Biểu đồ so sánh chỉ số R2 Score giữa Hồi quy tuyến tính và Hồi quy đa thức bậc 2}}{19}{figure.caption.17}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Đồ thị phân tán giữa giá trị thực tế và giá trị dự đoán của mô hình Đa thức bậc 2}}{20}{figure.caption.18}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Biểu đồ phân phối sai số thặng dư (Residuals) của mô hình tối ưu}}{20}{figure.caption.19}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Ma trận tương quan nhiệt Pearson giữa các thuộc tính liên tục}}{20}{figure.caption.20}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Trực quan hóa một bức ảnh mẫu từ tập BSDS500 và các Ground Truth phân vùng tương ứng}}{23}{figure.caption.22}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Kết quả phân vùng ảnh K-Means thực tế tương ứng với các giá trị K = 2, 3, 5, 8, 10}}{24}{figure.caption.23}%
+\contentsline {figure}{\numberline {14}{\ignorespaces So sánh trực quan kết quả phân cụm K-Means tối ưu với Ground Truth tương ứng}}{25}{figure.caption.24}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Biểu đồ phân phối chỉ số đánh giá chất lượng phân vùng ARI và NMI trên tập Test}}{26}{figure.caption.25}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Minh họa phân vùng ảnh thiên nhiên độ phức tạp cao bằng K-Means}}{27}{figure.caption.26}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Biểu đồ phân phối của biến mục tiêu giá nhà trung bình MedHouseVal}}{28}{figure.caption.28}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Biểu đồ nhiệt tương quan Pearson giữa các thuộc tính của California Housing}}{29}{figure.caption.29}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Biểu đồ so sánh R2 Score giữa MLP Scratch và các thuật toán hồi quy khác}}{33}{figure.caption.31}%
