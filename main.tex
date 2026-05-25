@@ -60,7 +60,7 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
 
-\renewcommand{\listfigurename}{Danh sách hình ảnh}
+\renewcommand{\listfigurename}{Mục lục hình ảnh}
 
 \begin{document}
 \pagenumbering{roman}
@@ -284,7 +284,7 @@ Spam (1) & 0.98 & 0.96 & 0.97 & 303 \\ \midrule
     \label{fig:spam_lr_matrix}
 \end{figure}
 
-\subsection{Mô hình 2: Phân lớp Bayes ngây thơ (Gaussian Naive Bayes) từ Scratch}
+\subsection{Mô hình 2: Phân lớp Gaussian Naive Bayes từ Scratch}
 
 \subsubsection{Cơ sở toán học và Phân phối xác suất Gaussian}
 Thuật toán Naive Bayes hoạt động dựa trên định lý Bayes với giả định độc lập mạnh giữa các đặc trưng đầu vào:
@@ -398,7 +398,7 @@ Spam (1) & 0.85 & 0.93 & 0.89 & 303 \\ \midrule
     \label{fig:spam_nb_matrix}
 \end{figure}
 
-\subsection{Mô hình 3: Máy vectơ hỗ trợ (Support Vector Machine - SVM) từ Scratch}
+\subsection{Mô hình 3: Support Vector Machine (SVM) từ Scratch}
 
 \subsubsection{Cơ sở toán học tối ưu hóa Hinge Loss}
 Thuật toán SVM nhị phân tìm kiếm một siêu phẳng siêu tuyến tính nhằm tối đa hóa khoảng cách biên (margin) giữa hai lớp dữ liệu. Để giải quyết các điểm dữ liệu bị lấn biên, SVM tối ưu hóa hàm mất mát bản lề (Hinge Loss) kết hợp phạt chuẩn hóa L2 (L2 Regularization):
@@ -540,13 +540,22 @@ Max & 69.00 & 3109.56 & 5.00 & 19.98 & 7500.00 \\ \bottomrule
     \label{fig:sales_distributions}
 \end{figure}
 
-Đồng thời, biểu đồ mối quan hệ tương tác trực quan giữa các cặp biến số (Pairplot) được thể hiện như sau:
+Đồng thời, thống kê số lượng đơn hàng theo các thuộc tính phân loại (categorical) được thể hiện chi tiết qua biểu đồ sau:
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{figures/sale_pred_fig_2.png}
-    \caption{Biểu đồ tương quan chéo Pairplot giữa các thuộc tính liên tục}
-    \label{fig:sales_pairplot}
+    \caption{Biểu đồ số lượng đơn hàng theo các thuộc tính phân loại}
+    \label{fig:sales_categorical_count}
+\end{figure}
+
+Bên cạnh đó, xu hướng biến động tổng doanh số theo thời gian (chuỗi thời gian) cũng được quan sát và phân tích:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/sale_pred_fig_3.png}
+    \caption{Biểu đồ xu hướng tổng doanh số theo thời gian đặt hàng}
+    \label{fig:sales_time_series}
 \end{figure}
 
 \subsection{Xây dựng Pipeline tiền xử lý dữ liệu đồng bộ bằng ColumnTransformer}
@@ -609,8 +618,8 @@ Hiệu năng dự đoán của 2 mô hình được đo lường bằng 3 chỉ 
 \begin{tabular}{lccc}
 \toprule
 \textbf{Mô hình Hồi quy} & \textbf{MSE} & \textbf{MAE} & \textbf{R2 Score} \\ \midrule
-Linear Regression & 18.2543 & 3.2512 & 0.8845 \\
-\textbf{Polynomial Regression (bậc 2)} & \textbf{1.2451} & \textbf{0.8412} & \textbf{0.9912} \\ \bottomrule
+Linear Regression & 964852.84 & 662.00 & 0.7793 \\
+\textbf{Polynomial Regression (bậc 2)} & \textbf{114798.90} & \textbf{146.88} & \textbf{0.9737} \\ \bottomrule
 \end{tabular}
 \end{table}
 
@@ -618,40 +627,31 @@ Linear Regression & 18.2543 & 3.2512 & 0.8845 \\
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{figures/sale_pred_fig_3.png}
+    \includegraphics[width=0.75\textwidth]{figures/sale_pred_fig_4.png}
     \caption{Biểu đồ so sánh chỉ số R2 Score giữa Hồi quy tuyến tính và Hồi quy đa thức bậc 2}
     \label{fig:sales_r2_comparison}
 \end{figure}
 
-Đồng thời, đồ thị phân tán biểu diễn giá trị thực tế so với giá trị dự đoán phi tuyến tính (True vs Predicted) được mô tả cực kỳ rõ nét như sau:
+Đồng thời, đồ thị phân tích chi tiết của mô hình Hồi quy Tuyến tính (bao gồm: Thực tế vs Dự đoán, Biểu đồ phần dư và Phân phối phần dư) cho thấy sự lệch lạc đáng kể (underfitting) của mô hình phẳng:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{figures/sale_pred_fig_4.png}
-    \caption{Đồ thị phân tán giữa giá trị thực tế và giá trị dự đoán của mô hình Đa thức bậc 2}
-    \label{fig:sales_true_vs_pred}
+    \includegraphics[width=1\textwidth]{figures/sale_pred_fig_5.png}
+    \caption{Phân tích chi tiết kết quả mô hình Hồi quy Tuyến tính (Linear Regression)}
+    \label{fig:sales_linear_analysis}
 \end{figure}
 
-Bên cạnh đó, đồ thị sai số thặng dư (Residuals Plot) cho thấy các điểm sai số phân bố ngẫu nhiên xung quanh đường 0, chứng minh mô hình không bị hiện tượng heteroscedasticity:
+Ngược lại, đồ thị phân tích chi tiết của mô hình Hồi quy Đa thức bậc 2 lại chứng minh độ bám sát dữ liệu vượt trội, các điểm sai số thặng dư phân bố rất chặt và ngẫu nhiên quanh đường 0:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{figures/sale_pred_fig_5.png}
-    \caption{Biểu đồ phân phối sai số thặng dư (Residuals) của mô hình tối ưu}
-    \label{fig:sales_residuals}
-\end{figure}
-
-Cuấy cùng, biểu đồ nhiệt ma trận hệ số tương quan Pearson giữa các thuộc tính số được vẽ chi tiết như sau:
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\textwidth]{figures/sale_pred_fig_6.png}
-    \caption{Ma trận tương quan nhiệt Pearson giữa các thuộc tính liên tục}
-    \label{fig:sales_correlation_heatmap}
+    \includegraphics[width=1\textwidth]{figures/sale_pred_fig_6.png}
+    \caption{Phân tích chi tiết kết quả mô hình Hồi quy Đa thức bậc 2 (Polynomial Regression)}
+    \label{fig:sales_poly_analysis}
 \end{figure}
 
 \noindent \textbf{Nhận xét phân tích sâu sắc}:
-Kết quả thực nghiệm từ Bảng \ref{tab:sales_results_table} chỉ ra rằng mô hình \textbf{Hồi quy đa thức bậc 2} đem lại độ chính xác gần như tuyệt đối với hệ số xác định \textbf{$R^2 = 0.9912$} và chỉ số sai số trung bình bình phương MSE cực thấp \textbf{$1.2451$}. Sự cải tiến vượt trội này chứng minh rằng tổng doanh số thực chất có mối quan hệ phi tuyến tương tác cực kỳ chặt chẽ giữa hai biến số: đơn giá sản phẩm (\texttt{Unit Price}) và số lượng đặt hàng (\texttt{Quantity}) theo quan hệ tích số nhân $Price = Price\_unit \times Quantity$. Hồi quy đa thức bậc 2 đã xuất sắc tự động tìm ra quan hệ nhân quả chéo này, trong khi Hồi quy tuyến tính phẳng thông thường gặp hiện tượng lệch sai số (underfitting) đáng kể.
+Kết quả thực nghiệm từ Bảng \ref{tab:sales_results_table} chỉ ra rằng mô hình \textbf{Hồi quy đa thức bậc 2} đem lại độ chính xác vượt trội với hệ số xác định \textbf{$R^2 = 0.9737$} và chỉ số sai số trung bình bình phương MSE giảm đáng kể xuống mức \textbf{$114798.90$}. Sự cải tiến mạnh mẽ này chứng minh rằng tổng doanh số thực chất có mối quan hệ phi tuyến tương tác cực kỳ chặt chẽ giữa hai biến số: đơn giá sản phẩm (\texttt{Unit Price}) và số lượng đặt hàng (\texttt{Quantity}) theo quan hệ tích số nhân $Price = Price\_unit \times Quantity$. Hồi quy đa thức bậc 2 đã xuất sắc tự động tìm ra quan hệ nhân quả chéo này, trong khi Hồi quy tuyến tính phẳng thông thường gặp hiện tượng lệch sai số (underfitting) đáng kể.
 
 ---
 
@@ -801,7 +801,7 @@ Dưới đây là biểu đồ phân phối tần suất của biến mục tiê
 \end{figure}
 
 \subsection{Tiền xử lý dữ liệu và Chuẩn hóa Z-score phi tuyến tính}
-Để mạng thần kinh đa tầng (MLP) có thể hội tụ nhanh chóng mà không gặp hiện tượng nổ gradient (exploding gradients) hoặc triệt tiêu gradient (vanishing gradients), dữ liệu được xử lý qua hai bước:
+Để mạng nơ-ron đa tầng (MLP) có thể hội tụ nhanh chóng mà không gặp hiện tượng nổ gradient (exploding gradients) hoặc triệt tiêu gradient (vanishing gradients), dữ liệu được xử lý qua hai bước:
 \begin{enumerate}
     \item Chia tập huấn luyện/kiểm thử theo tỷ lệ chuẩn \textbf{80/20} (\texttt{random\_state=42}).
     \item Thực hiện chuẩn hóa Z-score (Z-score normalization) trên tập huấn luyện và áp dụng trực tiếp lên tập kiểm thử nhằm đồng bộ hóa dải phân bố dữ liệu về trung bình bằng 0 và độ lệch chuẩn bằng 1:
@@ -810,7 +810,7 @@ Dưới đây là biểu đồ phân phối tần suất của biến mục tiê
     \end{equation}
 \end{enumerate}
 
-\subsection{Mạng thần kinh đa tầng MLP tự thiết kế hoàn toàn từ Scratch}
+\subsection{Mạng nơ-ron đa tầng MLP tự thiết kế hoàn toàn từ Scratch}
 
 \subsubsection{Cấu trúc kiến trúc mạng nơ-ron}
 Chúng tôi tự lập trình hoàn toàn lớp mạng \textbf{Multilayer Perceptron (MLP)} phi tuyến từ đầu với kiến trúc liên kết đầy đủ (Fully Connected):
